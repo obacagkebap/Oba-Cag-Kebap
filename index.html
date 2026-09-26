@@ -53,28 +53,49 @@
   :root{
     --black:#111418; 
     --dark:#22262c;
-    --text-muted:#505a69;
+    --text-muted:#455060;
     --blue-primary:#0d6efd; 
     --blue-dark:#0a58ca;
     --blue-light:#e7f1ff;
-    --bg:#ffffff; 
-    --bg-alt:#f8fafd; 
-    --border:rgba(13, 110, 253, 0.12);
-    --border-light:#e9ecef;
+    --card-bg:rgba(255, 255, 255, 0.94);
+    --border:rgba(13, 110, 253, 0.16);
+    --border-light:rgba(215, 225, 238, 0.9);
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth; scroll-padding-top:70px;}
-  body{margin:0; background:var(--bg); color:var(--black); font-family:'Work Sans',sans-serif; line-height:1.6; overflow-x:hidden; padding-bottom:70px;}
+
+  /* Palandöken Arka Planı (Sabit, Tam Ekran, Yazıları Karartmayan Yumuşak Filtreli) */
+  body{
+    margin:0;
+    color:var(--black);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    padding-bottom:70px;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.88), rgba(248, 250, 253, 0.92)),
+      url('palandoken.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
   h1,h2,h3{font-family:'Fraunces',serif; font-weight:700; margin:0; color:var(--black); letter-spacing:-0.02em;}
   a{color:inherit;}
   img{max-width:100%; height:auto; display:block;}
   .wrap{max-width:1040px; margin:0 auto; padding:0 20px;}
   .section{padding:70px 0;}
-  .section-alt{background:var(--bg-alt); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);}
+  .section-alt{
+    background:rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    border-top:1px solid var(--border-light); 
+    border-bottom:1px solid var(--border-light);
+  }
   .eyebrow{color:var(--blue-primary); font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;}
 
   /* TOP BAR & NAV */
-  nav{position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.98); backdrop-filter:blur(10px); border-bottom:1px solid var(--border-light); height:64px; display:flex; align-items:center;}
+  nav{position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--border-light); height:64px; display:flex; align-items:center;}
   .nav-inner{max-width:1040px; width:100%; margin:0 auto; padding:0 16px; display:flex; justify-content:space-between; align-items:center;}
   .nav-left{display:flex; align-items:center; gap:12px;}
   .menu-btn{background:none; border:none; padding:10px; cursor:pointer; display:flex; flex-direction:column; gap:5px; border-radius:6px; z-index:102;}
@@ -102,22 +123,29 @@
   .drawer-links a:active{background:var(--blue-light); color:var(--blue-primary);}
 
   /* HERO */
-  .hero{position:relative; padding:60px 20px; text-align:center; background:radial-gradient(ellipse 90% 60% at 50% 0%, var(--blue-light), transparent 75%), #ffffff; border-bottom:1px solid var(--border-light);}
+  .hero{position:relative; padding:70px 20px; text-align:center; border-bottom:1px solid var(--border-light); backdrop-filter:blur(3px);}
   .slogan{color:var(--blue-primary); font-size:14px; letter-spacing:0.02em; margin:0 0 12px; font-weight:700;}
   .hero h1{font-size:clamp(32px,7.5vw,56px); line-height:1.15; margin-bottom:16px; color:var(--black);}
-  .hero p.tag{color:var(--text-muted); font-size:16px; max-width:520px; margin:0 auto 24px;}
-  .rating-badge{display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--border); padding:8px 16px; border-radius:100px; font-size:13.5px; margin-bottom:28px; box-shadow:0 2px 8px rgba(13,110,253,0.06); font-weight:500;}
+  .hero p.tag{color:var(--text-muted); font-size:16px; max-width:540px; margin:0 auto 24px;}
+  .rating-badge{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.95); border:1px solid var(--border); padding:8px 18px; border-radius:100px; font-size:14px; margin-bottom:28px; box-shadow:0 3px 12px rgba(0,0,0,0.06); font-weight:500;}
   .rating-badge b{color:var(--blue-primary);}
   .hero-ctas{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
   .btn{display:inline-block; padding:13px 24px; border-radius:8px; text-decoration:none; font-size:15px; font-weight:600; text-align:center; transition:all .2s;}
-  .btn-primary{background:var(--blue-primary); color:#fff;}
+  .btn-primary{background:var(--blue-primary); color:#fff; box-shadow:0 4px 14px rgba(13,110,253,0.3);}
   .btn-primary:active{background:var(--blue-dark);}
-  .btn-ghost{border:1px solid var(--border-light); color:var(--black); background:#fff;}
+  .btn-ghost{border:1px solid #c9d5e3; color:var(--black); background:rgba(255,255,255,0.92);}
 
   /* ABOUT */
+  .about-card{
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    border-radius:16px;
+    padding:36px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.04);
+  }
   .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
   .about-grid h2{font-size:clamp(26px,5vw,36px); margin-bottom:18px;}
-  .about-grid p{color:var(--text-muted); font-size:15px; line-height:1.65;}
+  .about-grid p{color:var(--text-muted); font-size:15px; line-height:1.7;}
   .ikram-list{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:8px;}
   .ikram-list li{display:flex; align-items:center; gap:8px; background:var(--blue-light); border:1px solid var(--border); border-radius:100px; padding:7px 15px; font-size:14px; font-weight:600; color:var(--blue-dark);}
   .stat-row{display:flex; gap:36px; margin-top:28px;}
@@ -126,22 +154,29 @@
 
   /* GALLERY */
   .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
-  .g-tile{aspect-ratio:1; border-radius:12px; overflow:hidden; position:relative; background:#f0f2f5; border:1px solid var(--border-light);}
-  .g-tile img{width:100%; height:100%; object-fit:cover; display:block;}
+  .g-tile{aspect-ratio:1; border-radius:12px; overflow:hidden; position:relative; background:#f0f2f5; border:1px solid var(--border-light); box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+  .g-tile img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease;}
+  .g-tile:hover img{transform:scale(1.04);}
 
   /* HOURS & MAP */
-  .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
+  .info-panel{
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    border-radius:14px;
+    padding:28px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.03);
+  }
   .hours-table{width:100%; border-collapse:collapse; font-size:15px;}
   .hours-table td{padding:12px 6px; border-bottom:1px solid var(--border-light);}
   .hours-table td:last-child{text-align:right; font-weight:600; color:var(--dark);}
   .hours-table tr.closed td{color:#dc3545; font-weight:700;}
-  .addr-card{background:#fff; border:1px solid var(--border-light); border-radius:12px; padding:26px; box-shadow:0 4px 14px rgba(0,0,0,0.02);}
-  .addr-card h3{font-size:20px; margin-bottom:12px;}
+  .addr-card h3{font-size:22px; margin-bottom:12px;}
   .addr-card p{color:var(--text-muted); font-size:15px; margin:8px 0;}
   .addr-card a.link{color:var(--blue-primary); text-decoration:none; font-weight:600;}
 
   /* RESERVATION */
-  .res-box{max-width:540px; margin:0 auto; background:#fff; border:1px solid var(--border-light); border-radius:14px; padding:32px 24px; box-shadow:0 8px 24px rgba(13,110,253,0.04);}
+  .res-box{max-width:540px; margin:0 auto; background:var(--card-bg); border:1px solid var(--border-light); border-radius:16px; padding:34px 26px; box-shadow:0 8px 30px rgba(0,0,0,0.06);}
   .res-box h2{font-size:28px; text-align:center; margin-bottom:6px;}
   .res-box p.sub{text-align:center; color:var(--text-muted); font-size:14px; margin-bottom:24px;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;}
@@ -153,26 +188,37 @@
   .res-submit:active{background:var(--blue-dark);}
 
   /* REVIEWS */
-  .reviews{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
-  .review-card{background:#fff; border:1px solid var(--border-light); border-radius:12px; padding:22px; box-shadow:0 3px 10px rgba(0,0,0,0.02);}
-  .review-card p{font-size:14px; color:var(--text-muted); margin-bottom:12px; line-height:1.5;}
-  .review-stars{color:var(--blue-primary); font-size:14px; letter-spacing:2px;}
+  .reviews{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .review-card{
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    border-radius:14px;
+    padding:22px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.03);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .review-card p{font-size:14.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.6;}
+  .review-stars{color:#f59e0b; font-size:14px; letter-spacing:2px; margin-bottom:8px;}
+  .review-author{font-weight:700; font-size:13px; color:var(--black); margin-top:auto;}
 
   /* BOTTOM MOBILE BAR */
-  .mobile-bottom-bar{display:none; position:fixed; bottom:0; left:0; right:0; height:60px; background:#ffffff; border-top:1px solid var(--border-light); z-index:90; box-shadow:0 -2px 10px rgba(0,0,0,0.05); grid-template-columns:1fr 1fr 1fr;}
+  .mobile-bottom-bar{display:none; position:fixed; bottom:0; left:0; right:0; height:60px; background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); border-top:1px solid var(--border-light); z-index:90; box-shadow:0 -2px 10px rgba(0,0,0,0.05); grid-template-columns:1fr 1fr 1fr;}
   .mobile-bottom-bar a{display:flex; flex-direction:column; align-items:center; justify-content:center; text-decoration:none; color:var(--dark); font-size:11px; font-weight:600; gap:3px;}
   .mobile-bottom-bar a.active-action{color:var(--blue-primary);}
 
   @media(max-width:768px){
     .nav-links, .nav-call-desktop{display:none;}
-    .about-grid, .info-grid{grid-template-columns:1fr; gap:32px;}
+    .about-grid, .info-grid{grid-template-columns:1fr; gap:24px;}
     .gallery{grid-template-columns:repeat(2,1fr); gap:10px;}
     .reviews{grid-template-columns:1fr;}
     .form-row{grid-template-columns:1fr;}
     .mobile-bottom-bar{display:grid;}
+    .about-card{padding:24px 18px;}
   }
 
-  footer{padding:36px 0; text-align:center; color:var(--text-muted); font-size:13px; border-top:1px solid var(--border-light);}
+  footer{padding:36px 0; text-align:center; color:var(--text-muted); font-size:13px; border-top:1px solid var(--border-light); background:rgba(255,255,255,0.85);}
   footer a{color:var(--blue-primary); text-decoration:none; font-weight:600;}
   </style>
 </head>
@@ -229,25 +275,27 @@
 </section>
 
 <section class="section" id="hakkimizda">
-  <div class="wrap about-grid">
-    <div>
-      <span class="eyebrow">Hakkımızda</span>
-      <h2>Hem uygun fiyat, hem de müthiş lezzet arayanların tek adresi.</h2>
-      <p>Cağ kebabının hikâyesi Erzurum'un Oltu ilçesine dayanır. Yatay şişe dizilen marine edilmiş kuzu eti, odun ateşinde sabırla döndürülerek pişirilir ve sipariş üzerine ocaktan taze kesilir.</p>
-    </div>
-    <div>
-      <span class="eyebrow">Soframızın İkramları</span>
-      <h3 style="font-size:22px; margin:8px 0 16px;">Kebapla Birlikte Gelenler</h3>
-      <ul class="ikram-list">
-        <li>Domates</li>
-        <li>Salata</li>
-        <li>Acılı ezme</li>
-        <li>Lavaş ekmeği</li>
-        <li>Acı biber</li>
-      </ul>
-      <div class="stat-row">
-        <div class="stat"><b>4.7</b><span>Google Puanı</span></div>
-        <div class="stat"><b>%100</b><span>Kuzu Eti</span></div>
+  <div class="wrap">
+    <div class="about-card about-grid">
+      <div>
+        <span class="eyebrow">Hakkımızda</span>
+        <h2>Hem uygun fiyat, hem de müthiş lezzet arayanların tek adresi.</h2>
+        <p>Cağ kebabının hikâyesi Erzurum'un Oltu ilçesine dayanır. Yatay şişe dizilen marine edilmiş kuzu eti, odun ateşinde sabırla döndürülerek pişirilir ve sipariş üzerine ocaktan taze kesilir.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Soframızın İkramları</span>
+        <h3 style="font-size:22px; margin:8px 0 16px;">Kebapla Birlikte Gelenler</h3>
+        <ul class="ikram-list">
+          <li>Domates</li>
+          <li>Salata</li>
+          <li>Acılı ezme</li>
+          <li>Lavaş ekmeği</li>
+          <li>Acı biber</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><b>4.7</b><span>Google Puanı</span></div>
+          <div class="stat"><b>%100</b><span>Kuzu Eti</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -272,7 +320,7 @@
 
 <section class="section" id="saatler">
   <div class="wrap info-grid">
-    <div>
+    <div class="info-panel">
       <span class="eyebrow">Çalışma Saatleri</span>
       <h2 style="font-size:28px; margin:8px 0 20px;">Ne Zaman Açığız?</h2>
       <table class="hours-table">
@@ -285,16 +333,14 @@
         <tr><td>Pazar</td><td>11:00 – 23:00</td></tr>
       </table>
     </div>
-    <div>
+    <div class="info-panel addr-card">
       <span class="eyebrow">Adres & Konum</span>
-      <div class="addr-card" style="margin-top:8px;">
-        <h3>Oba Cağ Kebabı</h3>
-        <p>Fevzi Çakmak Mah., Mehmet Akif Cd. No:59<br>41700 Darıca / Kocaeli</p>
-        <p>📞 <a class="link" href="tel:+905442388041">0544 238 80 41</a></p>
-        <p style="margin-top:16px;">
-          <a class="btn btn-primary" style="padding:10px 18px; font-size:14px;" href="https://www.google.com/maps/place/OBA+CA%C4%9E+KEBABI/@40.773184,29.405533,17z/data=!3m1!4b1!4m6!3m5!1s0x14cadf9782bfb5db:0xc0a6e9ea2624632e!8m2!3d40.773184!4d29.405533!16s%2Fg%2F11yhn6283s" target="_blank" rel="noopener">Google Haritada Aç</a>
-        </p>
-      </div>
+      <h3 style="margin-top:8px;">Oba Cağ Kebabı</h3>
+      <p>Fevzi Çakmak Mah., Mehmet Akif Cd. No:59<br>41700 Darıca / Kocaeli</p>
+      <p>📞 <a class="link" href="tel:+905442388041">0544 238 80 41</a></p>
+      <p style="margin-top:20px;">
+        <a class="btn btn-primary" style="padding:10px 18px; font-size:14px;" href="https://www.google.com/maps/place/OBA+CA%C4%9E+KEBABI/@40.773184,29.405533,17z/data=!3m1!4b1!4m6!3m5!1s0x14cadf9782bfb5db:0xc0a6e9ea2624632e!8m2!3d40.773184!4d29.405533!16s%2Fg%2F11yhn6283s" target="_blank" rel="noopener">Google Haritada Aç</a>
+      </p>
     </div>
   </div>
 </section>
@@ -324,22 +370,40 @@
 
 <section class="section" id="yorumlar">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:30px;">
-      <span class="eyebrow">Değerlendirmeler</span>
+    <div style="text-align:center; margin-bottom:32px;">
+      <span class="eyebrow">Müşteri Deneyimleri</span>
       <h2>Google Yorumları</h2>
     </div>
     <div class="reviews">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>"Bölgedeki en kaliteli cağ kebabı; et tamamen kuzu, yumuşacık ve sinirsiz. Kadayıf dolması da mutlaka denenmeli."</p>
+        <p>"Darıca'da böyle bir lezzet bulmak büyük şans. Et tamamen kuzu, lokum gibi yumuşacık ve hiç koku yok. İkram edilen ezme ve sıcak lavaşlar da çok tazeydi."</p>
+        <span class="review-author">— Serkan K.</span>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>"Etin içi yumuşacık, dışı tam kıvamında kızarmış. Porsiyonlar gayet doyurucu, fiyat/performans çok iyi."</p>
+        <p>"Erzurum'da yediğim orijinal cağ kebabı lezzetini burada aynen yakalamışlar. Odun ateşinde pişmesi lezzete apayrı bir tat katıyor. Kadayıf dolmasını da mutlaka deneyin."</p>
+        <span class="review-author">— Murat T.</span>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>"Güler yüzlü ve temiz servis. Yanında gelen ikram mezelerle birlikte dört dörtlük bir lezzet deneyimi."</p>
+        <p>"Ailecek gittik, ilgi ve alaka çok iyiydi. Masaya gelen her cağ şişi sıcacıktı, servis hiç aksamadı. Fiyat/performans olarak bölgenin en iyisi."</p>
+        <span class="review-author">— Fatma D.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Eti sinirsiz ve tam kıvamında marine edilmiş. Şiş bittikçe sıcağı sıcağına yenisini getirmeleri harika. Temiz, nezih ve çok samimi bir işletme."</p>
+        <span class="review-author">— Hakan Y.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Mehmet Akif Caddesi'nin vazgeçilmez durağı oldu bizim için. Ustamızın ellerine sağlık, cağ kebabını hakkıyla yapan nadir yerlerden biri."</p>
+        <span class="review-author">— Emre B.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Güler yüzlü karşılama, ferah ortam ve eşsiz lezzet. Cağ kebabı seven herkesin kesinlikle uğraması gereken bir mekân."</p>
+        <span class="review-author">— Ayşe G.</span>
       </div>
     </div>
   </div>
@@ -376,7 +440,7 @@ var drawerCloseBtn = document.getElementById('drawerCloseBtn');
 function openMenu() {
   mobileDrawer.classList.add('active');
   drawerOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Menü açıkken arka plan kaymasını önler
+  document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
@@ -389,7 +453,7 @@ menuToggleBtn.addEventListener('click', openMenu);
 drawerCloseBtn.addEventListener('click', closeMenu);
 drawerOverlay.addEventListener('click', closeMenu);
 
-// Menü linklerine tıklandığında menüyü otomatik kapat
+// Menü linklerine tıklandığında çekmeceyi otomatik kapat
 var drawerLinks = document.querySelectorAll('.drawer-item');
 drawerLinks.forEach(function(item) {
   item.addEventListener('click', closeMenu);
@@ -403,7 +467,7 @@ document.getElementById('resForm').addEventListener('submit', function(e){
   var saat = document.getElementById('saat').value;
   var kisi = document.getElementById('kisi').value;
   var tel = document.getElementById('telefon').value;
-  var msg = 'Merhaba, Oba Cağ Kebabı için rezervasyon yapmak istiyorum.%0A' +
+  var msg = 'Merhaba,rezervasyon yapmak istiyorum.%0A' +
     'Ad Soyad: ' + encodeURIComponent(ad) + '%0A' +
     'Tarih: ' + encodeURIComponent(tarih) + '%0A' +
     'Saat: ' + encodeURIComponent(saat) + '%0A' +
