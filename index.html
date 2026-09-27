@@ -198,7 +198,7 @@
   .nav-links a{color:var(--text-muted);}
   .nav-links a:hover{color:var(--blue-primary);}
 
-  /* SAĞ ÜST KONTROLLER (Numara + Türk Bayrağı + Tema Değiştirici) */
+  /* SAĞ ÜST KONTROLLER */
   .nav-right-cluster{
     display:flex;
     align-items:center;
@@ -268,6 +268,109 @@
   .icon-moon{display:block;}
   [data-theme="dark"] .icon-sun{display:block; color:#fbbf24;}
   [data-theme="dark"] .icon-moon{display:none;}
+
+  /* AÇILIŞ REKLAM MODALI (POPUP) */
+  .promo-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15, 23, 42, 0.72);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    z-index:300;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    opacity:0;
+    visibility:hidden;
+    transition:all .35s ease;
+  }
+  .promo-modal-overlay.active{
+    opacity:1;
+    visibility:visible;
+  }
+  .promo-modal-box{
+    position:relative;
+    width:100%;
+    max-width:440px;
+    background:var(--card-surface);
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid var(--border-subtle);
+    box-shadow:0 25px 60px rgba(0, 0, 0, 0.4);
+    transform:scale(0.9);
+    transition:transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .promo-modal-overlay.active .promo-modal-box{
+    transform:scale(1);
+  }
+  .promo-close-btn{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(15, 23, 42, 0.75);
+    border:1px solid rgba(255, 255, 255, 0.3);
+    color:#ffffff;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10;
+    transition:background .2s, transform .2s;
+  }
+  .promo-close-btn:hover{
+    background:#e11d48;
+    transform:scale(1.08);
+  }
+  .promo-img-wrap{
+    width:100%;
+    max-height:360px;
+    background:#1e293b;
+    overflow:hidden;
+  }
+  .promo-img-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .promo-content-wrap{
+    padding:20px 22px 24px;
+    text-align:center;
+  }
+  .promo-content-wrap h3{
+    font-size:20px;
+    margin-bottom:8px;
+  }
+  .promo-content-wrap p{
+    font-size:13.5px;
+    color:var(--text-muted);
+    margin:0 0 16px;
+  }
+  .btn-instagram{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:13px 20px;
+    border-radius:14px;
+    background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color:#ffffff !important;
+    font-size:14.5px;
+    font-weight:700;
+    box-shadow:0 6px 18px rgba(220, 39, 67, 0.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-instagram:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(220, 39, 67, 0.45);
+  }
+  .btn-instagram svg{width:18px; height:18px;}
 
   /* MOBİL ÇEKMECE MENÜ */
   .drawer-overlay{
@@ -599,6 +702,24 @@
 <!-- Sabit Arka Plan -->
 <div class="bg-fixed-canvas"></div>
 
+<!-- AÇILIŞ REKLAM MODALI -->
+<div class="promo-modal-overlay" id="promoModal">
+  <div class="promo-modal-box">
+    <button class="promo-close-btn" id="promoCloseBtn" aria-label="Reklamı Kapat">✕</button>
+    <div class="promo-img-wrap">
+      <img src="reklam.jpeg" alt="Oba Cağ Kebabı Özel Duyuru">
+    </div>
+    <div class="promo-content-wrap">
+      <h3>Bizi Instagram'da Takip Edin!</h3>
+      <p>Günlük taze cağ kebabı paylaşımları, ocak başı anları ve sürpriz indirimler profilimizde.</p>
+      <a class="btn-instagram" href="https://www.instagram.com/obacagkebabi?stkn=dnhjYWJ5YnlzNWpq" target="_blank" rel="noopener">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @obacagkebabi Instagram'da Aç
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- MOBİL ÇEKMECE OVERLAY & MENÜ -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="mobileDrawer">
@@ -611,6 +732,7 @@
     <a href="#galeri" class="drawer-item">Galeri</a>
     <a href="#saatler" class="drawer-item">Konum & Saatler</a>
     <a href="#yorumlar" class="drawer-item">Yorumlar</a>
+    <a href="https://www.instagram.com/obacagkebabi?stkn=dnhjYWJ5YnlzNWpq" target="_blank" rel="noopener" class="drawer-item" style="color:#e11d48;">Instagram Hesabımız</a>
     <a href="#rezervasyon" class="drawer-item" style="background:var(--blue-tint); color:var(--blue-primary);">Masa Ayırt</a>
   </div>
 </div>
@@ -875,6 +997,39 @@
 </footer>
 
 <script>
+// Sayfa Yüklendiğinde Reklam Modalını Açma
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    var promoModal = document.getElementById('promoModal');
+    if(promoModal){
+      promoModal.classList.add('active');
+    }
+  }, 450); // Sayfa açıldıktan 0.45 saniye sonra pürüzsüzce açılır
+});
+
+// Reklamı Kapatma İşlemleri
+var promoModal = document.getElementById('promoModal');
+var promoCloseBtn = document.getElementById('promoCloseBtn');
+
+function closePromoModal() {
+  if(promoModal){
+    promoModal.classList.remove('active');
+  }
+}
+
+if(promoCloseBtn){
+  promoCloseBtn.addEventListener('click', closePromoModal);
+}
+
+// Modal dışına tıklandığında da kapanması için
+if(promoModal){
+  promoModal.addEventListener('click', function(e){
+    if(e.target === promoModal){
+      closePromoModal();
+    }
+  });
+}
+
 // Karanlık / Aydınlık Mod Yönetimi
 var themeToggleBtn = document.getElementById('themeToggleBtn');
 var currentTheme = localStorage.getItem('oba_theme') || 'light';
