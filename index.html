@@ -4,23 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="google-site-verification" content="pryF2ub67tkZG4RamafusPyIaLuYefvfrXk5DTHQZio" />
-  <title>Oba Cağ Kebabı | Darıca, Kocaeli</title>
+  <title>Oba Cağ Kebabı | Darıca Cağ Kebap - Erzurum Lezzeti Kocaeli</title>
 
-  <!-- Sekmedeki Profil Simgesi ve Sosyal Medya Önizlemesi -->
-  <link rel="icon" type="image/jpeg" href="images.jpeg">
-  <meta property="og:image" content="https://www.obacagkebap.com/images.jpg">
-  <meta property="og:title" content="Oba Cağ Kebabı | Darıca, Kocaeli">
-  <meta property="og:description" content="Erzurum usulü odun ateşinde gerçek cağ kebabı Darıca'da.">
+  <!-- Temel SEO ve Sıralama Meta Etiketleri -->
+  <meta name="description" content="Oba Cağ Kebap Darıca: Odun ateşinde %100 marine kuzu etinden Erzurum cağ kebabı lezzeti. Darıca ve Gebze bölgesinde rezervasyon, menü ve iletişim bilgileri.">
+  <meta name="keywords" content="oba cağ kebap, oba cağ kebabı, darıca cağ kebap, darıca cağ kebabı, cağ kebabı darıca, gebze cağ kebap, kocaeli cağ kebap, erzurum cağ kebabı darıca">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://obacagkebap.com/">
 
-  <!-- Schema.org Yapısal Veri -->
+  <!-- Bölgesel / Yerel Hedefleme -->
+  <meta name="geo.region" content="TR-41">
+  <meta name="geo.placename" content="Darıca, Kocaeli">
+  <meta name="geo.position" content="40.773184;29.405533">
+  <meta name="ICBM" content="40.773184, 29.405533">
+
+  <!-- Sekmedeki Profil Simgesi (Favicon) ve Sosyal Medya Önizlemesi -->
+  <link rel="icon" type="image/jpeg" href="/images.jpg">
+  <link rel="shortcut icon" href="/images.jpg">
+  <link rel="apple-touch-icon" href="/images.jpg">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://obacagkebap.com/">
+  <meta property="og:title" content="Oba Cağ Kebabı | Darıca Cağ Kebap - Erzurum Lezzeti">
+  <meta property="og:description" content="Erzurum usulü odun ateşinde gerçek cağ kebabı Darıca'da. %100 marine kuzu eti ve zengin ikramlar.">
+  <meta property="og:image" content="https://obacagkebap.com/images.jpg">
+
+  <!-- Schema.org Yapısal Veri (Google Yerel Restoran Tanımlaması) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "Oba Cağ Kebabı",
-    "image": "https://www.obacagkebap.com/images.jpg",
+    "image": "https://obacagkebap.com/images.jpg",
+    "@id": "https://obacagkebap.com",
+    "url": "https://obacagkebap.com",
     "telephone": "+905442388041",
-    "servesCuisine": "Turkish, Cağ Kebabı",
+    "priceRange": "₺₺",
+    "servesCuisine": ["Cağ Kebabı", "Türk Mutfağı"],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Fevzi Çakmak Mah., Mehmet Akif Cd. No:59",
@@ -34,12 +53,19 @@
       "latitude": 40.773184,
       "longitude": 29.405533
     },
+    "hasMap": "https://www.google.com/maps/place/OBA+CA%C4%9E+KEBABI/@40.773184,29.405533,17z/data=!3m1!4b1!4m6!3m5!1s0x14cadf9782bfb5db:0xc0a6e9ea2624632e!8m2!3d40.773184!4d29.405533!16s%2Fg%2F11yhn6283s",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "10:00",
         "closes": "22:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "23:00"
       }
     ]
   }
@@ -479,7 +505,6 @@
     .stat-row{margin-top:16px; padding-top:14px; gap:24px;}
     .stat b{font-size:24px;}
 
-    /* Galeride mobilde aşırı uzunluğu önleyen akıcı yatay kaydırma */
     .gallery{
       display:flex;
       overflow-x:auto;
@@ -567,8 +592,8 @@
         <span></span>
         <span></span>
       </button>
-      <a href="#" class="brand-box">
-        <img src="images.jpg" alt="Oba Cağ Kebabı Logo" class="brand-logo" onerror="this.style.display='none'">
+      <a href="/" class="brand-box">
+        <img src="/images.jpg" alt="Oba Cağ Kebabı Logo" class="brand-logo" onerror="this.style.display='none'">
         <div class="brand">OBA <span>CAĞ</span></div>
       </a>
     </div>
@@ -611,9 +636,9 @@
 <section class="hero">
   <div class="wrap">
     <div class="pro-card hero-panel">
-      <span class="eyebrow">Darıca'da Erzurum Lezzeti</span>
-      <h1>Odun Ateşinde Pişen <span>Cağ Kebabı</span></h1>
-      <p class="tag">1948'den beri değişmeyen geleneksel usul, %100 marine kuzu eti ve sıcacık ikramlar.</p>
+      <span class="eyebrow">Darıca'da Gerçek Erzurum Lezzeti</span>
+      <h1>Darıca Oba Cağ Kebabı | <span>Odun Ateşinde</span></h1>
+      <p class="tag">1948'den beri değişmeyen geleneksel usul, %100 marine kuzu eti ve sıcacık ikramlar ile Darıca ve Gebze'nin lezzet durağı.</p>
       <div class="rating-badge">
         ★★★★★ &nbsp; <b>4.7</b> / 5 Google Puanı
       </div>
@@ -630,8 +655,8 @@
     <div class="pro-card about-grid">
       <div>
         <span class="eyebrow">Hakkımızda</span>
-        <h2>Uygun fiyat ve eşsiz lezzetin adresi.</h2>
-        <p>Cağ kebabının hikâyesi Erzurum Oltu'ya uzanır. Özel baharatlarla marine edilen saf kuzu eti, odun ateşinde yatay şişte ağır ağır pişer ve siparişle taze kesilir.</p>
+        <h2>Darıca Cağ Kebap ve Eşsiz Lezzetin Adresi.</h2>
+        <p>Cağ kebabının hikâyesi Erzurum Oltu'ya uzanır. Oba Cağ Kebabı olarak Darıca'da özel baharatlarla marine ettiğimiz saf kuzu etini, odun ateşinde yatay şişte ağır ağır pişirip taze servis ediyoruz.</p>
       </div>
       <div>
         <span class="eyebrow">Kebapla Gelenler</span>
@@ -658,12 +683,12 @@
       <h2 style="font-size:24px;">Mekânımız ve Soframız</h2>
     </div>
     <div class="gallery">
-      <div class="g-tile"><img src="unnamed.webp" alt="Oba Cağ Kebabı"></div>
-      <div class="g-tile"><img src="unnamed-1.webp" alt="Dükkan İçi"></div>
-      <div class="g-tile"><img src="unnamed-2.webp" alt="Ocak Başı"></div>
-      <div class="g-tile"><img src="unnamed-3.webp" alt="Sofra"></div>
-      <div class="g-tile"><img src="unnamed-4.webp" alt="Detay"></div>
-      <div class="g-tile"><img src="unnamed-5.webp" alt="Salon"></div>
+      <div class="g-tile"><img src="unnamed.webp" alt="Darıca Oba Cağ Kebabı"></div>
+      <div class="g-tile"><img src="unnamed-1.webp" alt="Oba Cağ Dükkan İçi"></div>
+      <div class="g-tile"><img src="unnamed-2.webp" alt="Odun Ateşinde Ocak Başı Cağ Kebabı"></div>
+      <div class="g-tile"><img src="unnamed-3.webp" alt="Cağ Kebabı Sofrası"></div>
+      <div class="g-tile"><img src="unnamed-4.webp" alt="Cağ Kebabı Şiş Detay"></div>
+      <div class="g-tile"><img src="unnamed-5.webp" alt="Restoran Salonu"></div>
     </div>
   </div>
 </section>
@@ -684,13 +709,13 @@
       </table>
     </div>
     <div class="pro-card info-box addr-card">
-      <span class="eyebrow">Ulaşım</span>
-      <h3>Oba Cağ Kebabı</h3>
+      <span class="eyebrow">Ulaşım & Adres</span>
+      <h3>Oba Cağ Kebabı Darıca</h3>
       <p>Fevzi Çakmak Mah., Mehmet Akif Cd. No:59 Darıca/Kocaeli</p>
       <p>📞 <a style="color:var(--blue-primary); font-weight:700;" href="tel:+905442388041">0544 238 80 41</a></p>
       <p style="margin-top:16px;">
         <a class="btn btn-primary" style="padding:9px 18px; font-size:13px;" href="https://www.google.com/maps/place/OBA+CA%C4%9E+KEBABI/@40.773184,29.405533,17z/data=!3m1!4b1!4m6!3m5!1s0x14cadf9782bfb5db:0xc0a6e9ea2624632e!8m2!3d40.773184!4d29.405533!16s%2Fg%2F11yhn6283s" target="_blank" rel="noopener">
-          Haritada Aç
+          Google Haritalar'da Aç
         </a>
       </p>
     </div>
@@ -701,7 +726,7 @@
   <div class="wrap">
     <div class="pro-card res-box">
       <h2>Masa Ayırtın</h2>
-      <p class="sub">Bilgileri doldurun, WhatsApp hattımıza iletilsin.</p>
+      <p class="sub">Bilgileri doldurun, WhatsApp hattımıza doğrudan iletilsin.</p>
       <form id="resForm">
         <div class="form-row full">
           <div><label for="adSoyad">Ad Soyad</label><input id="adSoyad" required placeholder="Adınız Soyadınız"></div>
@@ -745,7 +770,7 @@
       
       <div class="pro-card review-card">
         <div class="review-stars">★★★★★</div>
-        <p>"Erzurum'daki orijinal cağ kebabı lezzetini burada bulmak harika. Odun ateşi tadı çok iyi geçmiş. Kadayıf dolmasını mutlaka deneyin."</p>
+        <p>"Erzurum'daki orijinal cağ kebabı lezzetini Darıca'da bulmak harika. Odun ateşi tadı çok iyi geçmiş. Kadayıf dolmasını mutlaka deneyin."</p>
         <div class="review-footer">
           <span class="review-author">Murat Taş</span>
           <span class="review-badge-verified">Google</span>
@@ -781,7 +806,7 @@
 
       <div class="pro-card review-card">
         <div class="review-stars">★★★★★</div>
-        <p>"Güler yüzlü esnaflık ve ferah ortam. Darıca'da gerçek cağ kebabı arayanlar tereddütsüz tercih edebilir."</p>
+        <p>"Güler yüzlü esnaflık ve ferah ortam. Darıca ve Gebze çevresinde gerçek cağ kebabı arayanlar tereddütsüz tercih edebilir."</p>
         <div class="review-footer">
           <span class="review-author">Ayşe Gündoğan</span>
           <span class="review-badge-verified">Google</span>
@@ -808,7 +833,7 @@
 </div>
 
 <footer>
-  <p>© 2026 Oba Cağ Kebabı — Darıca / Kocaeli</p>
+  <p>©️ 2026 Oba Cağ Kebabı — Darıca / Kocaeli</p>
   <p><a href="tel:+905442388041">0544 238 80 41</a></p>
 </footer>
 
