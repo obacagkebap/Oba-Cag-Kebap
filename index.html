@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -62,9 +62,34 @@
     --white:#ffffff;
     --card-surface:rgba(255, 255, 255, 0.94);
     --border-subtle:rgba(226, 232, 240, 0.9);
+    --nav-bg:rgba(255, 255, 255, 0.92);
+    --bg-grad:linear-gradient(180deg, rgba(255, 255, 255, 0.93) 0%, rgba(248, 250, 252, 0.91) 50%, rgba(241, 245, 249, 0.94) 100%);
     --shadow-sm:0 2px 8px rgba(15, 23, 42, 0.04);
     --shadow-md:0 12px 30px rgba(15, 23, 42, 0.08);
     --shadow-lg:0 20px 45px rgba(29, 78, 216, 0.1);
+    --input-bg:#ffffff;
+    --badge-bg:#ffffff;
+  }
+
+  [data-theme="dark"]{
+    --black-deep:#f8fafc;
+    --black-charcoal:#e2e8f0;
+    --text-muted:#94a3b8;
+    --blue-primary:#3b82f6;
+    --blue-vivid:#60a5fa;
+    --blue-dark:#1d4ed8;
+    --blue-tint:rgba(59, 130, 246, 0.15);
+    --blue-light-border:rgba(59, 130, 246, 0.3);
+    --white:#0f172a;
+    --card-surface:rgba(15, 23, 42, 0.88);
+    --border-subtle:rgba(51, 65, 85, 0.7);
+    --nav-bg:rgba(15, 23, 42, 0.92);
+    --bg-grad:linear-gradient(180deg, rgba(10, 15, 29, 0.93) 0%, rgba(15, 23, 42, 0.91) 50%, rgba(8, 12, 22, 0.95) 100%);
+    --shadow-sm:0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md:0 12px 30px rgba(0, 0, 0, 0.45);
+    --shadow-lg:0 20px 45px rgba(0, 0, 0, 0.6);
+    --input-bg:#1e293b;
+    --badge-bg:#1e293b;
   }
 
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -77,21 +102,21 @@
     line-height:1.65;
     overflow-x:hidden;
     padding-bottom:70px;
-    background-color:#f8fafc;
+    background-color:#0f172a;
+    transition:background-color .3s ease, color .3s ease;
   }
 
-  /* AYDINLIK, BEYAZ TONLU, ÇOK HAFİF BELİRGİN ÇAĞ KEBABI ARKA PLANI */
+  /* AYDINLIK / KARANLIK ÇAĞ KEBABI ARKA PLANI */
   .bg-fixed-canvas{
     position:fixed;
     inset:0;
     z-index:-1;
-    background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.93) 0%, rgba(248, 250, 252, 0.91) 50%, rgba(241, 245, 249, 0.94) 100%),
-      url('cagkebap.jpg');
+    background-image: var(--bg-grad), url('cagkebap.jpg');
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
     filter:contrast(1.05) saturate(1.1);
+    transition:background-image .3s ease;
   }
 
   h1,h2,h3{
@@ -117,7 +142,7 @@
     margin-bottom:8px;
   }
 
-  /* PREMIUM BEYAZ CAM KARTLAR */
+  /* PREMIUM CAM KARTLAR */
   .pro-card{
     background:var(--card-surface);
     backdrop-filter:blur(18px);
@@ -125,7 +150,7 @@
     border:1px solid var(--border-subtle);
     border-radius:24px;
     box-shadow:var(--shadow-md);
-    transition:transform .3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s ease, border-color .3s ease;
+    transition:transform .3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s ease, border-color .3s ease, background .3s ease;
   }
   .pro-card:hover{
     border-color:var(--blue-light-border);
@@ -137,21 +162,22 @@
     position:sticky;
     top:0;
     z-index:100;
-    background:rgba(255, 255, 255, 0.92);
+    background:var(--nav-bg);
     backdrop-filter:blur(16px);
     -webkit-backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(226, 232, 240, 0.85);
+    border-bottom:1px solid var(--border-subtle);
     height:72px;
     display:flex;
     align-items:center;
     box-shadow:var(--shadow-sm);
+    transition:background .3s ease, border-color .3s ease;
   }
   .nav-inner{max-width:1080px; width:100%; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center;}
   .nav-left{display:flex; align-items:center; gap:14px;}
   
   .menu-btn{
     background:none;
-    border:1px solid #e2e8f0;
+    border:1px solid var(--border-subtle);
     padding:9px;
     cursor:pointer;
     display:flex;
@@ -168,21 +194,29 @@
   .brand{font-family:'Playfair Display', serif; font-size:22px; font-weight:800; color:var(--black-deep); letter-spacing:-0.03em;}
   .brand span{color:var(--blue-primary);}
 
-  .nav-links{display:flex; gap:28px; font-size:14.5px; font-weight:600;}
+  .nav-links{display:flex; gap:24px; font-size:14.5px; font-weight:600;}
   .nav-links a{color:var(--text-muted);}
   .nav-links a:hover{color:var(--blue-primary);}
+
+  /* SAĞ ÜST KONTROLLER (Numara + Türk Bayrağı + Tema Değiştirici) */
+  .nav-right-cluster{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
   
   .nav-call-desktop{
     background:var(--blue-primary);
     color:#fff !important;
-    padding:10px 22px;
+    padding:9px 18px;
     border-radius:12px;
-    font-size:14px;
+    font-size:13.5px;
     font-weight:700;
     box-shadow:0 6px 18px rgba(29, 78, 216, 0.22);
     display:flex;
     align-items:center;
     gap:8px;
+    white-space:nowrap;
   }
   .nav-call-desktop:hover{
     background:var(--blue-dark);
@@ -190,11 +224,56 @@
     box-shadow:0 8px 22px rgba(29, 78, 216, 0.3);
   }
 
+  /* YUVARLAK TÜRK BAYRAĞI */
+  .flag-badge{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 2px 8px rgba(0, 0, 0, 0.15);
+    border:2px solid #ffffff;
+    flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  .flag-badge:hover{transform:scale(1.08);}
+  .flag-badge svg{width:100%; height:100%; display:block;}
+
+  /* TEMA DEĞİŞTİRME BUTONU (GÜNEŞ / AY) */
+  .theme-toggle-btn{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:var(--badge-bg);
+    border:1.5px solid var(--border-subtle);
+    color:var(--black-deep);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:var(--shadow-sm);
+    transition:all .25s ease;
+    padding:0;
+  }
+  .theme-toggle-btn:hover{
+    background:var(--blue-tint);
+    color:var(--blue-primary);
+    border-color:var(--blue-light-border);
+    transform:rotate(15deg);
+  }
+  .theme-toggle-btn svg{width:20px; height:20px;}
+  .icon-sun{display:none;}
+  .icon-moon{display:block;}
+  [data-theme="dark"] .icon-sun{display:block; color:#fbbf24;}
+  [data-theme="dark"] .icon-moon{display:none;}
+
   /* MOBİL ÇEKMECE MENÜ */
   .drawer-overlay{
     position:fixed;
     inset:0;
-    background:rgba(15, 23, 42, 0.45);
+    background:rgba(15, 23, 42, 0.55);
     backdrop-filter:blur(4px);
     z-index:200;
     opacity:0;
@@ -208,16 +287,18 @@
     left:-300px;
     width:290px;
     height:100%;
-    background:#ffffff;
+    background:var(--card-surface);
+    backdrop-filter:blur(20px);
     z-index:201;
-    box-shadow:6px 0 30px rgba(15, 23, 42, 0.12);
+    box-shadow:6px 0 30px rgba(0, 0, 0, 0.3);
     transition:transform .35s cubic-bezier(0.16, 1, 0.3, 1);
     display:flex;
     flex-direction:column;
     padding:28px 22px;
+    border-right:1px solid var(--border-subtle);
   }
   .drawer.active{transform:translateX(300px);}
-  .drawer-header{display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #f1f5f9; padding-bottom:18px; margin-bottom:20px;}
+  .drawer-header{display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-subtle); padding-bottom:18px; margin-bottom:20px;}
   .drawer-close{background:none; border:none; font-size:24px; cursor:pointer; color:var(--text-muted); padding:4px;}
   .drawer-links{display:flex; flex-direction:column; gap:8px;}
   .drawer-links a{
@@ -255,7 +336,7 @@
     display:inline-flex;
     align-items:center;
     gap:10px;
-    background:#ffffff;
+    background:var(--badge-bg);
     border:1px solid var(--blue-light-border);
     padding:9px 22px;
     border-radius:100px;
@@ -291,9 +372,9 @@
     box-shadow:0 12px 25px rgba(29, 78, 216, 0.35);
   }
   .btn-ghost{
-    border:1.5px solid #cbd5e1;
+    border:1.5px solid var(--border-subtle);
     color:var(--black-deep);
-    background:#ffffff;
+    background:var(--badge-bg);
   }
   .btn-ghost:hover{
     border-color:var(--blue-primary);
@@ -317,16 +398,16 @@
     display:inline-flex;
     align-items:center;
     gap:8px;
-    background:#ffffff;
-    border:1px solid #e2e8f0;
+    background:var(--badge-bg);
+    border:1px solid var(--border-subtle);
     border-radius:100px;
     padding:8px 18px;
     font-size:14px;
     font-weight:700;
     color:var(--blue-primary);
-    box-shadow:0 2px 6px rgba(0,0,0,0.02);
+    box-shadow:0 2px 6px rgba(0,0,0,0.04);
   }
-  .stat-row{display:flex; gap:40px; margin-top:32px; border-top:1px solid #f1f5f9; padding-top:24px;}
+  .stat-row{display:flex; gap:40px; margin-top:32px; border-top:1px solid var(--border-subtle); padding-top:24px;}
   .stat b{display:block; font-family:'Playfair Display', serif; font-size:36px; color:var(--blue-primary); line-height:1;}
   .stat span{font-size:13px; color:var(--text-muted); font-weight:700;}
 
@@ -338,8 +419,8 @@
     border-radius:20px;
     overflow:hidden;
     position:relative;
-    background:#e2e8f0;
-    border:2px solid #ffffff;
+    background:#1e293b;
+    border:2px solid var(--border-subtle);
     box-shadow:var(--shadow-md);
   }
   .g-tile img{
@@ -355,7 +436,7 @@
   .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
   .info-box{padding:42px 36px;}
   .hours-table{width:100%; border-collapse:collapse; font-size:15px; margin-top:12px;}
-  .hours-table td{padding:13px 6px; border-bottom:1px solid #f1f5f9;}
+  .hours-table td{padding:13px 6px; border-bottom:1px solid var(--border-subtle);}
   .hours-table td:last-child{text-align:right; font-weight:700; color:var(--black-deep);}
   .hours-table tr.closed td{color:#dc2626; font-weight:800;}
   
@@ -372,8 +453,8 @@
   input, select{
     width:100%;
     height:48px;
-    background:#ffffff;
-    border:1.5px solid #cbd5e1;
+    background:var(--input-bg);
+    border:1.5px solid var(--border-subtle);
     color:var(--black-deep);
     padding:10px 16px;
     border-radius:12px;
@@ -384,7 +465,7 @@
   input:focus, select:focus{
     outline:none;
     border-color:var(--blue-primary);
-    box-shadow:0 0 0 3px rgba(37, 99, 235, 0.15);
+    box-shadow:0 0 0 3px rgba(37, 99, 235, 0.2);
   }
   .res-submit{
     width:100%;
@@ -419,7 +500,7 @@
     display:inline-flex;
     align-items:center;
     gap:10px;
-    background:#ffffff;
+    background:var(--badge-bg);
     border:1.5px solid var(--blue-light-border);
     color:var(--blue-primary);
     padding:11px 24px;
@@ -450,7 +531,7 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    border-top:1px solid #f1f5f9;
+    border-top:1px solid var(--border-subtle);
     padding-top:14px;
     margin-top:auto;
   }
@@ -465,12 +546,12 @@
     left:0;
     right:0;
     height:64px;
-    background:rgba(255, 255, 255, 0.96);
+    background:var(--nav-bg);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
-    border-top:1px solid #e2e8f0;
+    border-top:1px solid var(--border-subtle);
     z-index:90;
-    box-shadow:0 -4px 18px rgba(15, 23, 42, 0.06);
+    box-shadow:0 -4px 18px rgba(0, 0, 0, 0.1);
     grid-template-columns:1fr 1fr 1fr;
   }
   .mobile-bottom-bar a{
@@ -497,6 +578,8 @@
     .mobile-bottom-bar{display:grid;}
     .info-box{padding:32px 24px;}
     .res-box{padding:32px 22px;}
+    .flag-badge{width:32px; height:32px;}
+    .theme-toggle-btn{width:34px; height:34px;}
   }
 
   footer{
@@ -505,15 +588,15 @@
     color:var(--text-muted);
     font-size:14px;
     font-weight:500;
-    border-top:1px solid #e2e8f0;
-    background:rgba(255, 255, 255, 0.88);
+    border-top:1px solid var(--border-subtle);
+    background:var(--nav-bg);
   }
   footer a{color:var(--blue-primary); font-weight:700;}
   </style>
 </head>
 <body>
 
-<!-- Aydınlık & Net Arka Plan -->
+<!-- Sabit Arka Plan -->
 <div class="bg-fixed-canvas"></div>
 
 <!-- MOBİL ÇEKMECE OVERLAY & MENÜ -->
@@ -545,16 +628,43 @@
         <div class="brand">OBA <span>CAĞ</span> KEBABI</div>
       </a>
     </div>
+
     <div class="nav-links">
       <a href="#hakkimizda">Hakkımızda</a>
       <a href="#galeri">Galeri</a>
       <a href="#saatler">Konum & Saatler</a>
       <a href="#yorumlar">Yorumlar</a>
     </div>
-    <a class="nav-call-desktop" href="tel:+905442388041">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/></svg>
-      0544 238 80 41
-    </a>
+
+    <!-- SAĞ ÜST KÜME: TELEFON + YUVARLAK TÜRK BAYRAĞI + TEMA GEÇİŞİ -->
+    <div class="nav-right-cluster">
+      <a class="nav-call-desktop" href="tel:+905442388041">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/></svg>
+        0544 238 80 41
+      </a>
+
+      <!-- Yuvarlak Türk Bayrağı Rozeti -->
+      <div class="flag-badge" title="Türkiye">
+        <svg viewBox="0 0 1200 800">
+          <rect width="1200" height="800" fill="#E30A17"/>
+          <circle cx="425" cy="400" r="200" fill="#ffffff"/>
+          <circle cx="475" cy="400" r="160" fill="#E30A17"/>
+          <polygon points="583.33,400 706.75,440.09 630.47,335.01 630.47,464.99 706.75,359.91" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <!-- Koyu / Açık Mod Değiştirici -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Temayı Değiştir" title="Açık / Koyu Mod">
+        <!-- Güneş Simgesi (Karanlık Modda Görünür) -->
+        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <!-- Ay Simgesi (Açık Modda Görünür) -->
+        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -765,6 +875,19 @@
 </footer>
 
 <script>
+// Karanlık / Aydınlık Mod Yönetimi
+var themeToggleBtn = document.getElementById('themeToggleBtn');
+var currentTheme = localStorage.getItem('oba_theme') || 'light';
+
+document.documentElement.setAttribute('data-theme', currentTheme);
+
+themeToggleBtn.addEventListener('click', function(){
+  var activeTheme = document.documentElement.getAttribute('data-theme');
+  var newTheme = (activeTheme === 'dark') ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('oba_theme', newTheme);
+});
+
 // Mobil Çekmece Menü
 var mobileDrawer = document.getElementById('mobileDrawer');
 var drawerOverlay = document.getElementById('drawerOverlay');
